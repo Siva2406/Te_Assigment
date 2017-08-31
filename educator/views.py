@@ -10,7 +10,7 @@ def users(request):
     course_res = []
     video_data = {}
     course_data = {}
-    with open('static/courseinfo.txt', 'r') as handle:
+    with open('static/Tracking-Log.json', 'r') as handle:
         parsed = json.load(handle)
     played_videos = Counter(parsed[i]['username'] for i in range(len(parsed)) if(parsed[i]['username'] != "" and parsed[i]['event_source'] == "browser" and parsed[i]['name'] == "play_video"))
     courses_enrolled = Counter(parsed[i]['username'] for i in range(len(parsed)) if(parsed[i]['username'] != "" and parsed[i]['event_source'] == "server" and parsed[i]['event_type'] == "te.course.enrollment.activated"))
